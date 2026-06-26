@@ -1,0 +1,5 @@
+.env
+.DS_Store
+lime_whitewash_screening/venv/
+__pycache__/
+*.pyc
