@@ -17,7 +17,7 @@ print("=" * 70)
 print("ENHANCED LIME WHITEWASH - MATERIALS SCREENING SUMMARY")
 print("=" * 70)
 
-print(f"\nTotal candidates from Materials Project (Step 2 filter): {len(mp_candidates)}")
+print(f"\nTotal candidates from Materials Project (Step 2 filter + BaSO4/CaCO3 targeted query): {len(mp_candidates)}")
 print(f"Total candidates from JARVIS dft_3d (Step 4 filter):      {len(jarvis)}")
 
 dielectric_count = len(mp_dielectric) + len(jarvis)
@@ -31,29 +31,22 @@ print(f"\nMaterials with mid-IR phonon data (8-13 micron window): {ir_mp + ir_ja
 print(f"  - MP (phonon in has_props):             {ir_mp}")
 print(f"  - JARVIS (max_ir_mode / dfpt_piezo):    {ir_jarvis}")
 
-high = master[master["priority"] == "HIGH"].sort_values("estimated_reflectance", ascending=False)
-print(f"\nHIGH priority candidates (band_gap>4eV AND estimated_reflectance>0.85): {len(high)}")
+high = master[master["priority"] == "HIGH"].sort_values("mie_qscat_800nm", ascending=False)
+print(f"\nHIGH priority candidates (mie_qscat_800nm>2.0 AND band_gap>3.5eV): {len(high)}")
 if len(high) == 0:
-    print("  None found. CAVEAT: estimated_reflectance is single-interface, normal-incidence")
-    print("  Fresnel reflectance at one photon energy (700 nm proxy) -- it models specular")
-    print("  reflection off a flat bulk crystal, not the diffuse multi-particle scattering")
-    print("  that gives real whitewash pigments (e.g. TiO2, CaCO3) their >0.85 reflectance.")
-    print("  Treat estimated_reflectance as a RELATIVE ranking signal, not an absolute")
-    print("  prediction of paint performance; thresholds may need recalibration.")
-    print("\n  Top 5 candidates by estimated_reflectance (priority shown as classified):")
-    for _, row in master.sort_values("estimated_reflectance", ascending=False).head(5).iterrows():
-        print(f"    {row['formula']:<12} band_gap={row['band_gap']:.2f} eV  "
-              f"estimated_reflectance={row['estimated_reflectance']:.3f}  priority={row['priority']}")
+    print("  None found.")
 else:
     for _, row in high.head(5).iterrows():
         print(f"  {row['formula']:<12} band_gap={row['band_gap']:.2f} eV  "
-              f"estimated_reflectance={row['estimated_reflectance']:.3f}  source={row['source']}")
+              f"mie_qscat_800nm={row['mie_qscat_800nm']:.3f}  source={row['source']}  "
+              f"lime_compatible={row['lime_compatible']}")
 
 print("\nKnown whitewash-relevant compounds found (BaSO4, TiO2, SiO2, CaCO3, Y2O3, ZrO2):")
 targets = ["BaSO4", "TiO2", "SiO2", "CaCO3", "Y2O3", "ZrO2"]
-master_norm = master.copy()
-master_norm["_norm"] = master_norm["formula"].apply(normalize_formula)
-master_rank = {f: i + 1 for i, f in enumerate(master.sort_values("estimated_reflectance", ascending=False)["formula"])}
+master_rank = {f: i + 1 for i, f in enumerate(master.sort_values("mie_qscat_800nm", ascending=False)["formula"])}
+
+mp_candidates_norm = mp_candidates.copy()
+mp_candidates_norm["_norm"] = mp_candidates_norm["formula"].apply(normalize_formula)
 
 combined_raw = pd.concat([
     mp_dielectric.assign(source="MP", id_col=mp_dielectric.get("material_id")),
@@ -65,16 +58,32 @@ for target in targets:
     target_norm = normalize_formula(target)
     variants = combined_raw[combined_raw["_norm"] == target_norm]
     if len(variants) == 0:
-        print(f"  {target}: 0 variants found (excluded by element filter - "
-              f"likely contains S or C, outside the allowed O+metal set).")
+        was_queried = (mp_candidates_norm["_norm"] == target_norm).any()
+        if was_queried:
+            print(f"  {target}: found on MP but no dielectric data on file -> "
+                  f"no n/k available, so no Mie estimate could be computed (would need new DFT).")
+        else:
+            print(f"  {target}: 0 variants found (excluded by element filter - "
+                  f"contains S or C, outside the allowed O+metal set).")
         continue
-    best = variants.sort_values("estimated_reflectance", ascending=False).iloc[0]
+    best = variants.sort_values("mie_qscat_800nm", ascending=False).iloc[0]
     best_rank = master_rank.get(best["formula"], "deduplicated out of master")
     print(f"  {target}: {len(variants)} variant(s) found across MP+JARVIS "
-          f"(reflectance range {variants['estimated_reflectance'].min():.3f}-"
-          f"{variants['estimated_reflectance'].max():.3f}). Best: {best['source']} "
-          f"{best.get('id_col')}, estimated_reflectance={best['estimated_reflectance']:.3f}, "
+          f"(Q_scat range {variants['mie_qscat_800nm'].min():.3f}-"
+          f"{variants['mie_qscat_800nm'].max():.3f}). Best: {best['source']} "
+          f"{best.get('id_col')}, mie_qscat_800nm={best['mie_qscat_800nm']:.3f}, "
           f"master rank={best_rank}.")
+
+lime_compat = master[master["lime_compatible"]]
+print(f"\nLime-compatible candidates (formula contains Ca or Si): {len(lime_compat)} of {len(master)}")
+print("  (May chemically bond into the Ca(OH)2 matrix rather than just dispersing in it.)")
+lime_high_medium = lime_compat[lime_compat["priority"].isin(["HIGH", "MEDIUM"])].sort_values(
+    "mie_qscat_800nm", ascending=False
+)
+print(f"  Of these, {len(lime_high_medium)} are HIGH/MEDIUM priority. Top 5:")
+for _, row in lime_high_medium.head(5).iterrows():
+    print(f"    {row['formula']:<12} band_gap={row['band_gap']:.2f} eV  "
+          f"mie_qscat_800nm={row['mie_qscat_800nm']:.3f}  priority={row['priority']}")
 
 print("\n" + "=" * 70)
 print(f"Full ranked list: master_candidates.csv ({len(master)} unique candidates)")

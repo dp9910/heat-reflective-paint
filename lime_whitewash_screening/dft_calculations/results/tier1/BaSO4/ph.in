@@ -1,0 +1,12 @@
+&INPUTPH
+  prefix    = 'BaO4S'
+  outdir    = './out'
+  fildyn    = 'BaO4S.dyn'
+  tr2_ph    = 1.0d-14
+  ldisp     = .false.
+  epsil     = .true.
+  lraman    = .false.
+  trans     = .true.
+  recover   = .true.,
+/
+0.0 0.0 0.0

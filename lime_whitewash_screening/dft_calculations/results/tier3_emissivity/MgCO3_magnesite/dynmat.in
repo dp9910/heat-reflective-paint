@@ -1,0 +1,4 @@
+&INPUT
+  fildyn = 'CMgO3.dyn',
+  asr    = 'simple',
+/

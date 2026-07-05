@@ -1,0 +1,4 @@
+&INPUT
+  fildyn = 'O4SSr.dyn',
+  asr    = 'simple',
+/

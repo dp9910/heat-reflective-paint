@@ -1,0 +1,11 @@
+&INPUTPH
+  prefix    = 'O2Zr',
+  outdir    = './out',
+  fildyn    = 'O2Zr.dyn',
+  tr2_ph    = 1.0d-14,
+  ldisp     = .false.,
+  epsil     = .true.,
+  lraman    = .false.,
+  trans     = .true.,
+/
+0.0 0.0 0.0

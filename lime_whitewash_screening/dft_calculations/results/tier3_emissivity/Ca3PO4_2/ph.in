@@ -1,0 +1,11 @@
+&INPUTPH
+  prefix    = 'Ca3O8P2',
+  outdir    = './out',
+  fildyn    = 'Ca3O8P2.dyn',
+  tr2_ph    = 1.0d-12,
+  ldisp     = .false.,
+  epsil     = .true.,
+  trans     = .true.,
+  recover   = .true.,
+/
+0.0 0.0 0.0

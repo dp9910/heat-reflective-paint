@@ -1,0 +1,11 @@
+&INPUTPH
+  prefix    = 'CaO4S',
+  outdir    = './out',
+  fildyn    = 'CaO4S.dyn',
+  tr2_ph    = 1.0d-12,
+  ldisp     = .false.,
+  epsil     = .true.,
+  trans     = .true.,
+  recover   = .true.,
+/
+0.0 0.0 0.0

@@ -1,0 +1,11 @@
+&INPUTPH
+  prefix    = 'MgO4S',
+  outdir    = './out',
+  fildyn    = 'MgO4S.dyn',
+  tr2_ph    = 1.0d-12,
+  ldisp     = .false.,
+  epsil     = .true.,
+  trans     = .true.,
+  recover   = .true.,
+/
+0.0 0.0 0.0

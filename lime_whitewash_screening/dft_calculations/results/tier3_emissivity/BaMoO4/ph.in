@@ -1,0 +1,11 @@
+&INPUTPH
+  prefix    = 'BaMoO4',
+  outdir    = './out',
+  fildyn    = 'BaMoO4.dyn',
+  tr2_ph    = 1.0d-12,
+  ldisp     = .false.,
+  epsil     = .true.,
+  trans     = .true.,
+  recover   = .true.,
+/
+0.0 0.0 0.0

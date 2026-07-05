@@ -1,0 +1,4 @@
+&INPUT
+  fildyn = 'BaMoO4.dyn',
+  asr    = 'simple',
+/

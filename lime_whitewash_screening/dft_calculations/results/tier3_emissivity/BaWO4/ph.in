@@ -1,0 +1,12 @@
+&INPUTPH
+  prefix    = 'BaO4W',
+  outdir    = './out',
+  fildyn    = 'BaO4W.dyn',
+  tr2_ph    = 1.0d-10,
+  ldisp     = .false.,
+  epsil     = .true.,
+  trans     = .true.,
+  recover   = .true.,
+  alpha_mix(1) = 0.3,
+/
+0.0 0.0 0.0

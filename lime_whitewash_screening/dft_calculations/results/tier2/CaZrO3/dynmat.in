@@ -1,0 +1,4 @@
+&INPUT
+  fildyn = 'CaO3Zr.dyn',
+  asr    = 'simple',
+/

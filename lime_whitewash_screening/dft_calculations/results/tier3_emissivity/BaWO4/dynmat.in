@@ -1,0 +1,4 @@
+&INPUT
+  fildyn = 'BaO4W.dyn',
+  asr    = 'simple',
+/

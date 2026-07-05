@@ -1,0 +1,58 @@
+&CONTROL
+   calculation      = 'vc-relax'
+   restart_mode     = 'from_scratch'
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './out'
+   prefix           = 'O2Si'
+   etot_conv_thr    = 1e-05
+   forc_conv_thr    = 0.0001
+   disk_io          = 'low'
+   pseudo_dir       = '/data/pseudopotentials'
+/
+&SYSTEM
+   ibrav            = 0
+   ecutwfc          = 50
+   ecutrho          = 400
+   occupations      = 'smearing'
+   degauss          = 0.005
+   smearing         = 'gaussian'
+   nspin            = 1
+   ntyp             = 2
+   nat              = 9
+/
+&ELECTRONS
+   electron_maxstep = 150
+   conv_thr         = 1e-08
+   mixing_beta      = 0.3
+/
+&IONS
+   ion_dynamics     = 'bfgs'
+/
+&CELL
+   cell_dynamics    = 'bfgs'
+   press_conv_thr   = 0.5
+/
+ATOMIC_SPECIES
+Si 28.085 Si.pbe-n-kjpaw_psl.1.0.0.UPF
+O 15.999 O.pbe-n-kjpaw_psl.0.1.UPF
+
+K_POINTS automatic
+4 4 4  0 0 0
+
+CELL_PARAMETERS angstrom
+4.91496600000000 -0.00000001000000 0.00000000000000
+-2.45748252000000 4.25648610000000 -0.00000000000000
+0.00000000000000 0.00000000000000 5.43130114000000
+
+ATOMIC_POSITIONS angstrom
+Si 1.3051414363 2.2605711959 0.0000000000  
+Si -1.1523415935 1.9959148988 3.6208692371  
+Si 2.3046836372 -0.0000000047 1.8104319029  
+O 0.3073131905 1.7596070465 4.2629792744  
+O 0.7799652123 3.6428192140 0.6421154687  
+O -1.0872700703 3.1105416730 2.4525473716  
+O 1.3702077931 1.1459444214 1.1683218656  
+O 3.2374429557 0.6136668729 2.9787537684  
+O 2.7647913587 2.4968790422 4.7891856713  
+

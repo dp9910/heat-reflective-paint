@@ -1,0 +1,61 @@
+&CONTROL
+   calculation      = 'vc-relax'
+   restart_mode     = 'from_scratch'
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './out'
+   prefix           = 'O2Zr'
+   etot_conv_thr    = 1e-05
+   forc_conv_thr    = 0.0001
+   disk_io          = 'low'
+   pseudo_dir       = '/data/pseudopotentials'
+/
+&SYSTEM
+   ibrav            = 0
+   ecutwfc          = 40
+   ecutrho          = 320
+   occupations      = 'smearing'
+   degauss          = 0.005
+   smearing         = 'gaussian'
+   nspin            = 1
+   ntyp             = 2
+   nat              = 12
+/
+&ELECTRONS
+   electron_maxstep = 150
+   conv_thr         = 1e-08
+   mixing_beta      = 0.3
+/
+&IONS
+   ion_dynamics     = 'bfgs'
+/
+&CELL
+   cell_dynamics    = 'bfgs'
+   press_conv_thr   = 0.5
+/
+ATOMIC_SPECIES
+Zr 91.224 zr_pbe_v1.uspp.F.UPF
+O 15.999 O.pbe-n-kjpaw_psl.0.1.UPF
+
+K_POINTS automatic
+4 4 4  0 0 0
+
+CELL_PARAMETERS angstrom
+5.08507902000000 0.00000000000000 -0.83997737000000
+0.00000000000000 5.22810872000000 0.00000000000000
+-0.00532399000000 0.00000000000000 5.32969350000000
+
+ATOMIC_POSITIONS angstrom
+Zr 3.6758169621 5.0077618699 3.6047186669  
+Zr 3.6784789571 2.8344012101 0.9398719169  
+Zr 1.4012760729 2.3937075099 3.5498442131  
+Zr 1.4039380679 0.2203468501 0.8849974631  
+O 0.3474386673 0.8693720565 4.4392116418  
+O 0.3501006623 1.7446823035 1.7743648918  
+O 2.8002236982 1.3458220471 -0.3485406292  
+O 2.2821933268 3.9598764071 2.1734100092  
+O 2.7975617032 1.2682323129 2.3163061208  
+O 2.2795313318 3.8822866729 4.8382567592  
+O 4.7296543677 3.4834264165 2.7153512382  
+O 4.7323163627 4.3587366635 0.0505044882  
+

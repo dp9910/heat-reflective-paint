@@ -1,0 +1,5 @@
+&INPUT
+  fildyn = 'O2Zr.dyn',
+  asr    = 'simple',
+  filout = 'O2Zr.modes',
+/

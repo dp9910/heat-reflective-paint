@@ -3,3 +3,5 @@
 lime_whitewash_screening/venv/
 __pycache__/
 *.pyc
+*.docx
+lime_whitewash_screening/dft_calculations/dft_key_outputs.tar.gz

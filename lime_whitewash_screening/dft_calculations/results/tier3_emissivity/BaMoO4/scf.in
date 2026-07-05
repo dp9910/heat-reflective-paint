@@ -1,0 +1,54 @@
+&CONTROL
+   calculation      = 'scf'
+   restart_mode     = 'from_scratch'
+   tprnfor          = .true.
+   outdir           = './out'
+   prefix           = 'BaMoO4'
+   disk_io          = 'low'
+   pseudo_dir       = '/data/pseudopotentials'
+/
+&SYSTEM
+   ibrav            = 0
+   ecutwfc          = 60
+   ecutrho          = 480
+   nosym            = .true.
+   occupations      = 'fixed'
+   ntyp             = 3
+   nat              = 12
+/
+&ELECTRONS
+   electron_maxstep = 200
+   conv_thr         = 1e-10
+   mixing_beta      = 0.3
+/
+&IONS
+/
+&CELL
+/
+ATOMIC_SPECIES
+Ba 137.327 Ba.pbe-spn-kjpaw_psl.1.0.0.UPF
+Mo 95.95 Mo.pbe-spn-kjpaw_psl.1.0.0.UPF
+O 15.999 O.pbe-n-kjpaw_psl.0.1.UPF
+
+K_POINTS automatic
+4 4 4  0 0 0
+
+CELL_PARAMETERS angstrom
+5.22133671000000 0.00027587000000 -2.08523917000000
+-0.83296308000000 5.15455799000000 -2.08501768000000
+-0.01278142000000 -0.01534011000000 7.54759700000000
+
+ATOMIC_POSITIONS angstrom
+Ba 1.8442939833 0.6329232721 4.6181037662  
+Ba 2.5312921852 4.5065756476 -1.2407711636  
+Mo 4.0384816312 3.2103350475 2.5329774262  
+Mo 0.3371158001 1.9291587028 0.8443606385  
+O 3.9087189494 2.1456347006 -1.8460424920  
+O 3.2761805180 1.6161986247 2.4225297327  
+O 4.1276801146 4.0138951723 0.9578977484  
+O 1.3137294137 0.9223926007 -0.2360082343  
+O 3.0618567420 4.2171063036 3.6133483845  
+O 0.2479189699 1.1255882535 2.4194520340  
+O 0.4668680393 2.9938590492 5.2233847273  
+O 1.0994056377 3.5233002796 0.9548104175  
+

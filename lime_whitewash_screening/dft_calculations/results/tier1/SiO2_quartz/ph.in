@@ -1,0 +1,10 @@
+&INPUTPH
+  prefix    = 'O2Si',
+  outdir    = './out',
+  fildyn    = 'O2Si.dyn',
+  tr2_ph    = 1.0d-12,
+  ldisp     = .false.,
+  epsil     = .true.,
+  trans     = .true.,
+/
+0.0 0.0 0.0

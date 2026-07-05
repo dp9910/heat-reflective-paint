@@ -1,0 +1,62 @@
+&CONTROL
+   calculation      = 'vc-relax'
+   restart_mode     = 'from_scratch'
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './out2'
+   prefix           = 'Ca3O8P2'
+   etot_conv_thr    = 1e-05
+   forc_conv_thr    = 0.0001
+   disk_io          = 'low'
+   pseudo_dir       = '/data/pseudopotentials'
+/
+&SYSTEM
+   ibrav            = 0
+   ecutwfc          = 50
+   ecutrho          = 400
+   occupations      = 'smearing'
+   degauss          = 0.005
+   smearing         = 'gaussian'
+   ntyp             = 3
+   nat              = 13
+/
+&ELECTRONS
+   electron_maxstep = 150
+   conv_thr         = 1e-08
+   mixing_beta      = 0.3
+/
+&IONS
+   ion_dynamics     = 'bfgs'
+/
+&CELL
+   cell_dynamics    = 'bfgs'
+   press_conv_thr   = 0.5
+/
+ATOMIC_SPECIES
+Ca 40.078 Ca.pbe-spn-kjpaw_psl.1.0.0.UPF
+P 30.973761998 P.pbe-n-kjpaw_psl.1.0.0.UPF
+O 15.999 O.pbe-n-kjpaw_psl.0.1.UPF
+
+K_POINTS automatic
+4 4 4  0 0 0
+
+CELL_PARAMETERS angstrom
+4.83776449000000 0.00034845000000 4.91456224000000
+2.01327112000000 4.39894483000000 4.91456225000000
+0.00054332000000 0.00034846000000 6.89615138000000
+
+ATOMIC_POSITIONS angstrom
+Ca 0.0000000000 0.0000000000 0.0000000000  
+Ca 1.3917099097 0.8936662733 3.3972800152  
+Ca 5.4598690203 3.5059754667 13.3279958548  
+P 2.7750425309 1.7819531927 6.7741103700  
+P 4.0765363991 2.6176885473 9.9511655000  
+O 4.9819796514 3.1991059644 8.8500920285  
+O 4.0153390278 1.0866186534 9.8017778711  
+O 2.6588366569 3.1991059693 9.8017778760  
+O 4.1927422731 1.2005357707 6.9234979940  
+O 1.8695992786 1.2005357756 7.8751838415  
+O 2.2160709208 1.4230177046 5.4096140285  
+O 4.6355080092 2.9766240354 11.3156618415  
+O 2.8362399022 3.3130230866 6.9234979989  
+

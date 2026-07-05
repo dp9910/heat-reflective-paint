@@ -1,0 +1,4 @@
+&INPUT
+  fildyn = 'MgO4S.dyn',
+  asr    = 'simple',
+/

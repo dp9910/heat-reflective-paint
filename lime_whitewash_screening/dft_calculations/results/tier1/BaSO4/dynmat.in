@@ -1,0 +1,5 @@
+&INPUT
+  fildyn = 'BaO4S.dyn',
+  asr    = 'simple',
+  filout = 'BaO4S.modes',
+/

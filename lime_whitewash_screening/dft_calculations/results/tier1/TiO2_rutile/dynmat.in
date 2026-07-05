@@ -1,0 +1,5 @@
+&INPUT
+  fildyn = 'O2Ti.dyn',
+  asr    = 'simple',
+  filout = 'O2Ti.modes',
+/

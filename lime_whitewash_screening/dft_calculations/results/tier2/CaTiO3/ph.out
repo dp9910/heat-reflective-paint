@@ -1,0 +1,311 @@
+
+     Program PHONON v.6.7MaX starts on  1Jul2026 at 22: 7:48 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI), running on     8 processors
+
+     MPI processes distributed on     1 nodes
+     R & G space division:  proc/nbgrp/npool/nimage =       8
+     Waiting for input...
+     Reading input from standard input
+      Title line not specified: using 'default'.
+
+     Reading xml data from directory:
+
+     ./out/CaO3Ti.save/
+     file Ca.pbe-spn-kjpaw_psl.1.0.0.UPF: wavefunction(s)  3S renormalized
+     file O.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  2P renormalized
+
+     IMPORTANT: XC functional enforced from input :
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+     Any further DFT definition will be discarded
+     Please, verify this is what you really want
+
+
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min         417     208     60                25533     9024    1380
+     Max         419     209     61                25534     9029    1383
+     Sum        3341    1671    485               204267    72219   11059
+
+
+     Check: negative core charge=   -0.000005
+
+     negative rho (up, down):  4.634E-03 0.000E+00
+     Reading collected, re-writing distributed wavefunctions
+
+     Calculation of q =    0.0000000   0.0000000   0.0000000
+
+     default                                                                    
+
+     bravais-lattice index     =            0
+     lattice parameter (alat)  =      10.1517  a.u.
+     unit-cell volume          =    1512.3000 (a.u.)^3
+     number of atoms/cell      =           20
+     number of atomic types    =            3
+     kinetic-energy cut-off    =      50.0000  Ry
+     charge density cut-off    =     400.0000  Ry
+     convergence threshold     =      1.0E-12
+     beta                      =       0.7000
+     number of iterations used =            4
+     Exchange-correlation= PBE
+                           (   1   4   3   4   0   0   0)
+
+
+     celldm(1)=   10.15170  celldm(2)=    0.00000  celldm(3)=    0.00000
+     celldm(4)=    0.00000  celldm(5)=    0.00000  celldm(6)=    0.00000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (  1.0000  0.0000  0.0000 )  
+               a(2) = (  0.0000  1.0169  0.0000 )  
+               a(3) = (  0.0000  0.0000  1.4215 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.0000  0.0000  0.0000 )  
+               b(2) = (  0.0000  0.9834  0.0000 )  
+               b(3) = (  0.0000  0.0000  0.7035 )  
+
+
+     Atoms inside the unit cell: 
+
+     Cartesian axes
+
+     site n.  atom      mass           positions (alat units)
+        1     Ca  40.0780   tau(    1) = (    0.50907    0.55156    1.06612  )
+        2     Ca  40.0780   tau(    2) = (    0.49093    0.46533    0.35537  )
+        3     Ca  40.0780   tau(    3) = (    0.99093    0.04311    1.06612  )
+        4     Ca  40.0780   tau(    4) = (    0.00907    0.97378    0.35537  )
+        5     Ti  47.8670   tau(    5) = (    0.00000    0.50845    0.71075  )
+        6     Ti  47.8670   tau(    6) = (    0.00000    0.50845    0.00000  )
+        7     Ti  47.8670   tau(    7) = (    0.50000    0.00000    0.71075  )
+        8     Ti  47.8670   tau(    8) = (    0.50000    0.00000    0.00000  )
+        9     O   15.9990   tau(    9) = (    0.07678    0.48946    1.06612  )
+       10     O   15.9990   tau(   10) = (    0.92322    0.52743    0.35537  )
+       11     O   15.9990   tau(   11) = (    0.42322    0.99790    1.06612  )
+       12     O   15.9990   tau(   12) = (    0.57678    0.01899    0.35537  )
+       13     O   15.9990   tau(   13) = (    0.79029    0.80295    1.36441  )
+       14     O   15.9990   tau(   14) = (    0.20971    0.21394    0.65366  )
+       15     O   15.9990   tau(   15) = (    0.20971    0.21394    0.05709  )
+       16     O   15.9990   tau(   16) = (    0.79029    0.80295    0.76783  )
+       17     O   15.9990   tau(   17) = (    0.70971    0.29451    1.36441  )
+       18     O   15.9990   tau(   18) = (    0.29029    0.72239    0.65366  )
+       19     O   15.9990   tau(   19) = (    0.29029    0.72239    0.05709  )
+       20     O   15.9990   tau(   20) = (    0.70971    0.29451    0.76783  )
+
+     Computing dynamical matrix for 
+                    q = (   0.0000000   0.0000000   0.0000000 )
+
+      2 Sym.Ops. (with q -> -q+G )
+
+
+     G cutoff = 1044.1861  (  25534 G-vectors)     FFT grid: ( 72, 72, 96)
+     G cutoff =  522.0930  (   9029 G-vectors)  smooth grid: ( 45, 48, 72)
+     number of k points=   112
+
+     PseudoPot. # 1 for Ca read from file:
+     /data/pseudopotentials/Ca.pbe-spn-kjpaw_psl.1.0.0.UPF
+     MD5 check sum: 1e11ab70c77b02a7d7d676f41d47b751
+     Pseudo is Projector augmented-wave + core cor, Zval = 10.0
+     Generated using &quot;atomic&quot; code by A. Dal Corso  v.6.4.1
+     Shape of augmentation charge: PSQ
+     Using radial grid of 1169 points,  6 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+                l(5) =   2
+                l(6) =   2
+     Q(r) pseudized with 0 coefficients 
+
+
+     PseudoPot. # 2 for Ti read from file:
+     /data/pseudopotentials/ti_pbe_v1.4.uspp.F.UPF
+     MD5 check sum: 88a00a6731bd790ddea75d31a80cb452
+     Pseudo is Ultrasoft + core correction, Zval = 12.0
+     Generated by new atomic code, or converted to UPF format
+     Using radial grid of  851 points,  6 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+                l(5) =   2
+                l(6) =   2
+     Q(r) pseudized with  6 coefficients,  rinner =    1.000   1.000   1.000
+                                                       1.000   1.000
+
+     PseudoPot. # 3 for O  read from file:
+     /data/pseudopotentials/O.pbe-n-kjpaw_psl.0.1.UPF
+     MD5 check sum: 833c495a5d0f9b75bf046115549bffff
+     Pseudo is Projector augmented-wave + core cor, Zval =  6.0
+     Generated using &quot;atomic&quot; code by A. Dal Corso  v.6.3
+     Shape of augmentation charge: BESSEL
+     Using radial grid of 1095 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+     Q(r) pseudized with 0 coefficients 
+
+
+     Mode symmetry, C_1 (1)     point group:
+
+
+     Electric field:
+     Dielectric constant
+     Born effective charges as d Force / d E
+
+
+     Atomic displacements:
+     There are   60 irreducible representations
+
+     Representation     1      1 modes -  To be done
+
+     Representation     2      1 modes -  To be done
+
+     Representation     3      1 modes -  To be done
+
+     Representation     4      1 modes -  To be done
+
+     Representation     5      1 modes -  To be done
+
+     Representation     6      1 modes -  To be done
+
+     Representation     7      1 modes -  To be done
+
+     Representation     8      1 modes -  To be done
+
+     Representation     9      1 modes -  To be done
+
+     Representation    10      1 modes -  To be done
+
+     Representation    11      1 modes -  To be done
+
+     Representation    12      1 modes -  To be done
+
+     Representation    13      1 modes -  To be done
+
+     Representation    14      1 modes -  To be done
+
+     Representation    15      1 modes -  To be done
+
+     Representation    16      1 modes -  To be done
+
+     Representation    17      1 modes -  To be done
+
+     Representation    18      1 modes -  To be done
+
+     Representation    19      1 modes -  To be done
+
+     Representation    20      1 modes -  To be done
+
+     Representation    21      1 modes -  To be done
+
+     Representation    22      1 modes -  To be done
+
+     Representation    23      1 modes -  To be done
+
+     Representation    24      1 modes -  To be done
+
+     Representation    25      1 modes -  To be done
+
+     Representation    26      1 modes -  To be done
+
+     Representation    27      1 modes -  To be done
+
+     Representation    28      1 modes -  To be done
+
+     Representation    29      1 modes -  To be done
+
+     Representation    30      1 modes -  To be done
+
+     Representation    31      1 modes -  To be done
+
+     Representation    32      1 modes -  To be done
+
+     Representation    33      1 modes -  To be done
+
+     Representation    34      1 modes -  To be done
+
+     Representation    35      1 modes -  To be done
+
+     Representation    36      1 modes -  To be done
+
+     Representation    37      1 modes -  To be done
+
+     Representation    38      1 modes -  To be done
+
+     Representation    39      1 modes -  To be done
+
+     Representation    40      1 modes -  To be done
+
+     Representation    41      1 modes -  To be done
+
+     Representation    42      1 modes -  To be done
+
+     Representation    43      1 modes -  To be done
+
+     Representation    44      1 modes -  To be done
+
+     Representation    45      1 modes -  To be done
+
+     Representation    46      1 modes -  To be done
+
+     Representation    47      1 modes -  To be done
+
+     Representation    48      1 modes -  To be done
+
+     Representation    49      1 modes -  To be done
+
+     Representation    50      1 modes -  To be done
+
+     Representation    51      1 modes -  To be done
+
+     Representation    52      1 modes -  To be done
+
+     Representation    53      1 modes -  To be done
+
+     Representation    54      1 modes -  To be done
+
+     Representation    55      1 modes -  To be done
+
+     Representation    56      1 modes -  To be done
+
+     Representation    57      1 modes -  To be done
+
+     Representation    58      1 modes -  To be done
+
+     Representation    59      1 modes -  To be done
+
+     Representation    60      1 modes -  To be done
+
+
+
+     Alpha used in Ewald sum =   2.8000
+
+     negative rho (up, down):  4.634E-03 0.000E+00
+     PHONON       :  28m20.22s CPU  29m 6.04s WALL
+
+
+     Electric Fields Calculation
+
+      iter #   1 total cpu time : 20150.0 secs   av.it.:  12.1
+      thresh= 1.000E-02 alpha_mix =  0.700 |ddv_scf|^2 =  1.853E-08
+
+      iter #   2 total cpu time : 43483.1 secs   av.it.:  25.7
+      thresh= 1.361E-05 alpha_mix =  0.700 |ddv_scf|^2 =  4.969E-08
+
+      iter #   3 total cpu time : 58671.3 secs   av.it.:  22.8
+      thresh= 2.229E-05 alpha_mix =  0.700 |ddv_scf|^2 =  2.301E-09
+
+      iter #   4 total cpu time : 73744.7 secs   av.it.:  23.5
+      thresh= 4.797E-06 alpha_mix =  0.700 |ddv_scf|^2 =  1.875E-10
+mpirun: Forwarding signal 18 to job
